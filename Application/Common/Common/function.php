@@ -12,15 +12,3 @@ function getSm($filename)
 	$arr[3] = 'sm_'.$arr[3];
 	return implode('/', $arr);
 }
-
-// class CateController extends CommonConntroller
-// {
-// 	public function __consertuct()
-// 	{
-// 		parent::__consertuct();
-
-// 		if (empty($_SESSION['flag'])) {
-// 			$this -> error('请先登录', 'index.php?m=index&c=index&a=index');
-// 		}
-// 	}
-// }

@@ -60,7 +60,6 @@
         </div>
     </div>
     <!--/sidebar-->
-    
 
 	<div class="main-wrap">
         <div class="crumb-wrap">
