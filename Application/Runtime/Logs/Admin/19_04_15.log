@@ -1,0 +1,24 @@
+[ 2019-04-15T11:35:18+08:00 ] 127.0.0.1 /?m=admin&c=user&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000577s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001227s ]
+SQL: SHOW COLUMNS FROM `bbs_user` [ RunTime:0.0057s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bbs_user` LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT * FROM `bbs_user` LIMIT 0,4   [ RunTime:0.0014s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000066s ]
+NOTIC: [2] Use of undefined constant 普通会员 - assumed '普通会员' (this will throw an Error in a future version of PHP) D:\xampp\htdocs\mybbs\Application\Runtime\Cache\Admin\65e605872ed5d34210f5b33beb13f5a3.php 第 128 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018260s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018298s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000717s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000740s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001759s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001813s ]
+

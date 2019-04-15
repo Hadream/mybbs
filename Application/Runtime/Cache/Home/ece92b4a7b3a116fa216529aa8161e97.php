@@ -36,48 +36,48 @@
       <div id="logo_login">
       
       <!--logo部分start-->
-      <div id="logo"></div>
+      <a href="/"><div id="logo"></div></a>
       <!--logo部分end-->
         
       <!--登陆部分start-->
-      <div id="login">
-      <?php if(empty($_SESSION['flag'])): ?>
-      <form action="/index.php?m=home&c=login&a=dologin" method="post">
-        <table>
-        <tr>
-          <td>
-          <label>帐号</label>
-          </td>
-          <td>
-          <input type="text" name="uname" />
-          </td>
-          <td width="80px">
-          <label><input type="checkbox" name="remember" />自动登录</label>
-          </td>
-          <td>
-          找回密码
-          </td>
-        </tr>
-        <tr>
-          <td>
-          <label>密码</label>
-          </td>
-          <td>
-          <input type="password" name="upwd" />
-          </td>
-          <td>
-          <input type="submit" value="立即登录" />
-          </td>
-          <td>
-            <a href="./index.php?m=home&c=login&a=signup">立即注册</a>
-          </td>
-        </tr>
-        </table>
-      </form>
-      <?php else: ?>
-          用户   <?=$_SESSION['userInfo']['uname']?><br>
-          <a href="/index.php?m=home&c=login&a=logout">退出</a>
-      <?php endif; ?>
+      <div  id="login"  style="position:relative;   right: -200px; bottom: -40px;">
+        <?php if(empty($_SESSION['flag'])): ?>
+        <form action="/index.php?m=home&c=login&a=dologin" method="post">
+          <table>
+          <tr>
+            <td>
+            <label>帐号</label>
+            </td>
+            <td>
+            <input type="text" name="uname" />
+            </td>
+            <td width="80px">
+            <label><input type="checkbox" name="remember" />自动登录</label>
+            </td>
+            <td>
+            找回密码
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <label>密码</label>
+            </td>
+            <td>
+            <input type="password" name="upwd" />
+            </td>
+            <td>
+            <input type="submit" value="立即登录" />
+            </td>
+            <td>
+              <a href="./index.php?m=home&c=login&a=signup">立即注册</a>
+            </td>
+          </tr>
+          </table>
+        </form>
+          <?php else:?>
+              用户   <?=$_SESSION['userInfo']['uname']?>&nbsp&nbsp&nbsp&nbsp&nbsp
+              <a href="/index.php?m=home&c=login&a=logout">退出</a>
+          <?php endif; ?>
       </div>
       <!--登陆部分start-->
       
@@ -200,7 +200,7 @@
 					<table cellspacing=0 cellpadding=0 width='100%'>
 					<?php foreach($posts as $k=>$post): ?>
 						<tr>
-							<td class="list_title"><a href="post.html"><?=$post['title']?></a></td>
+							<td class="list_title"><a href="/index.php?m=home&c=reply&a=create&pid=<?=$post['pid']?>"><?=$post['title']?></a></td>
 							<td class="list_author"><?=$users[ $post['uid'] ]?></td>
 							<td class="list_count"><?=$post['rep_cnt']?><?=$post['view_cnt']?></td>
 							<td class="list_ptime"><?=date('Y-m-d H:i:s',$post['updated_at'])?></td>

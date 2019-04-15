@@ -33,7 +33,7 @@
 					<table cellspacing=0 cellpadding=0 width='100%'>
 					<?php foreach($posts as $k=>$post): ?>
 						<tr>
-							<td class="list_title"><a href="post.html"><?=$post['title']?></a></td>
+							<td class="list_title"><a href="/index.php?m=home&c=reply&a=create&pid=<?=$post['pid']?>"><?=$post['title']?></a></td>
 							<td class="list_author"><?=$users[ $post['uid'] ]?></td>
 							<td class="list_count"><?=$post['rep_cnt']?><?=$post['view_cnt']?></td>
 							<td class="list_ptime"><?=date('Y-m-d H:i:s',$post['updated_at'])?></td>
