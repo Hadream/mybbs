@@ -21,7 +21,7 @@
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
                 <li><a href=""><?= $_SESSION['userInfo']['uname'] ?></a></li>
-                <li><a href="#">修改密码</a></li>
+                <li><a href="/index.php?m=admin&c=index&a=change">修改密码</a></li>
                 <li><a href="/index.php?m=admin&c=login&a=logout">退出</a></li>
             </ul>
         </div>
@@ -35,7 +35,7 @@
         <div class="sidebar-content">
             <ul class="sidebar-list">
                 <li>
-                    <a href="#"><i class="icon-font">&#xe003;</i>用户管理</a>
+                    <a href=""><i class="icon-font">&#xe003;</i>用户管理</a>
                     <ul class="sub-menu">
                         <li><a href="/index.php?m=admin&c=user&a=create"><i class="icon-font">&#xe008;</i>添加用户</a></li>
                         <li><a href="/index.php?m=admin&c=user&a=index"><i class="icon-font">&#xe005;</i>查看用户</a></li>
@@ -43,17 +43,23 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="icon-font">&#xe018;</i>分区管理</a>
+                    <a href=""><i class="icon-font">&#xe018;</i>分区管理</a>
                     <ul class="sub-menu">
                         <li><a href="/index.php?m=admin&c=part&a=create"><i class="icon-font">&#xe017;</i>添加分区</a></li>
                         <li><a href="/index.php?m=admin&c=part&a=index"><i class="icon-font">&#xe037;</i>查看分区</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="icon-font">&#xe018;</i>版块管理</a>
+                    <a href=""><i class="icon-font">&#xe018;</i>版块管理</a>
                     <ul class="sub-menu">
                         <li><a href="/index.php?m=admin&c=cate&a=create"><i class="icon-font">&#xe017;</i>添加版块</a></li>
                         <li><a href="/index.php?m=admin&c=cate&a=index"><i class="icon-font">&#xe037;</i>查看版块</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href=""><i class="icon-font">&#xe018;</i>帖子管理</a>
+                    <ul class="sub-menu">
+                        <li><a href="index.php?m=admin&c=look&a=index"><i class="icon-font">&#xe017;</i>查看帖子</a></li>
                     </ul>
                 </li>
             </ul>
@@ -68,19 +74,22 @@
         </div>
         <div class="search-wrap">
             <div class="search-content">
-                <form action="#" method="post">
+                <form action="/index.php" method="get">
+                    <input type="hidden" name ="" value="admin" >
+                    <input type="hidden" name ="c" value="user">
                     <table class="search-tab">
                         <tbody><tr>
-                            <th width="120">选择分类:</th>
+                            <th width="120">选择版块:</th>
                             <td>
-                                <select name="search-sort" id="">
-                                    <option value="">全部</option>
-                                    <option value="19">精品界面</option><option value="20">推荐界面</option>
+                                <select name="cates" id="">
+                                   <?php foreach($part as $part): ?>
+                                    <option value="<?=$cates['cid']?>"><?=$part['pname']?></option>
+                                   <?php endforeach; ?>
                                 </select>
                             </td>
-                            <th width="70">关键字:</th>
-                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                            <th width="70">分区查询:</th>
+                            <td><input class="common-text" placeholder="模糊查询" name="pname" value="" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" value="查询" type="submit"></td>
                         </tr>
                     </tbody></table>
                 </form>
@@ -117,7 +126,7 @@
                         </tr>
                        <?php endforeach; ?>
                     </tbody></table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="list-page"><?=$html_page?></div>
                 </div>
             </form>
         </div>

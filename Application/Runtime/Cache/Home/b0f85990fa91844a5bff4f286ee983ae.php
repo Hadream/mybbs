@@ -36,48 +36,49 @@
       <div id="logo_login">
       
       <!--logo部分start-->
-      <div id="logo"></div>
+      <a href="/"><div id="logo"></div></a>
       <!--logo部分end-->
         
       <!--登陆部分start-->
-      <div id="login">
-      <?php if(empty($_SESSION['flag'])): ?>
-      <form action="/index.php?m=home&c=login&a=dologin" method="post">
-        <table>
-        <tr>
-          <td>
-          <label>帐号</label>
-          </td>
-          <td>
-          <input type="text" name="uname" />
-          </td>
-          <td width="80px">
-          <label><input type="checkbox" name="remember" />自动登录</label>
-          </td>
-          <td>
-          找回密码
-          </td>
-        </tr>
-        <tr>
-          <td>
-          <label>密码</label>
-          </td>
-          <td>
-          <input type="password" name="upwd" />
-          </td>
-          <td>
-          <input type="submit" value="立即登录" />
-          </td>
-          <td>
-            <a href="./index.php?m=home&c=login&a=signup">立即注册</a>
-          </td>
-        </tr>
-        </table>
-      </form>
-      <?php else: ?>
-          用户   <?=$_SESSION['userInfo']['uname']?><br>
-          <a href="/index.php?m=home&c=login&a=logout">退出</a>
-      <?php endif; ?>
+      <div  id="login"><br>
+        <?php  if(isset($_SESSION['userInfo']) && ($_SESSION['userInfo']['auth'])<=2){ echo '<a href="http://www.mybbs.com/?m=admin&c=index&a=index">登录后台 |</a>'; } else { echo ''; } ?>
+        <?php if(empty($_SESSION['flag'])): ?>
+        <form action="/index.php?m=home&c=login&a=dologin" method="post">
+          <table>
+          <tr>
+            <td>
+            <label>帐号</label>
+            </td>
+            <td>
+            <input type="text" name="uname" />
+            </td>
+            <td width="80px">
+            <label><input type="checkbox" name="remember" />自动登录</label>
+            </td>
+            <td>
+            找回密码
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <label>密码</label>
+            </td>
+            <td>
+            <input type="password" name="upwd" />
+            </td>
+            <td>
+            <input type="submit" value="立即登录" />
+            </td>
+            <td>
+              <a href="./index.php?m=home&c=login&a=signup">立即注册</a>
+            </td>
+          </tr>
+          </table>
+        </form>
+          <?php else:?>
+              当前用户 |<a href="index.php?m=home&c=user&a=edit&uid=<?= $_SESSION['userInfo']['uid']?>"> <?=$_SESSION['userInfo']['uname'] ?></a>
+              <a href="/index.php?m=home&c=login&a=logout"> | 退出</a>
+          <?php endif; ?>
       </div>
       <!--登陆部分start-->
       

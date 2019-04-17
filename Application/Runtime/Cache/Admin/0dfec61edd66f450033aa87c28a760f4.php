@@ -14,7 +14,7 @@
                 <ul class="admin_items">
                     <li>
                         <label for="user">用户名：</label>
-                        <input type="text" name="uname" value="" id="user" autocomplete="Off" size="40" class="admin_input_style" />
+                        <input type="text" name="uname" value="" id="user" autocomplete="On" size="40" class="admin_input_style" />
                     </li>
                     <li>
                         <label for="pwd">密码：</label>

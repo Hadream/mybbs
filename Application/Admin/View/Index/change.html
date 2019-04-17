@@ -1,0 +1,13 @@
+<extend name="Index/index"/>
+<block name="main">
+    <form style="text-align: center;" action="/index.php?m=admin&c=index&a=update" method="post">
+            <br><br><br>
+            用户名 :    <input type="text" name="uname" value="<?=$_SESSION['userInfo']['uname']?>"><br>
+            新密码 :    <input type="pwd" name="upwd"><br>
+            确认密码 :  <input type="pwd" name="reupwd"><br>
+                        <input type="submit" value="确认修改密码">
+    </form>
+</block>
+
+
+    

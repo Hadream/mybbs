@@ -26,7 +26,7 @@ class UserController extends CommonController
 		// 两次密码不一致
 		if ($data['upwd'] !== $data['reupwd']) {
 			$this -> error('两次密码不一致');
-	}
+	  }
 
 		// 加密密码
 		$data['upwd'] = password_hash($data['upwd'], PASSWORD_DEFAULT);
@@ -76,8 +76,8 @@ class UserController extends CommonController
       // 得到分页显示html代码
       $html_page = $Page -> show();
 
-		 // 获取数据
-		 $users = $User -> where($condition) 
+		  // 获取数据
+		  $users = $User -> where($condition) 
                      -> limit($Page -> firstRow, $Page -> listRows)
                      -> select();
 
@@ -92,7 +92,7 @@ class UserController extends CommonController
 
 		 // 显示数据
 		 $this -> assign('users', $users);
-       $this -> assign('html_page', $html_page);
+     $this -> assign('html_page', $html_page);
 		 $this -> display();  // 在View/User/index.html
    }
 
@@ -123,15 +123,15 @@ class UserController extends CommonController
    // 接收修改后的数据,进行更新
    public function update()
    {
-		$uid = $_GET['uid'];  // 获取用户ID
-		$data = $_POST;
+  		$uid = $_GET['uid'];  // 获取用户ID
+  		$data = $_POST;
 
-		// 有可能上传新的头像
-		if ($_FILES['uface']['error'] !== 4) {
+  		// 有可能上传新的头像
+  		if ($_FILES['uface']['error'] !== 4) {
 
-			$data['uface'] = $this -> doUp();  // 处理上传文件
-			$this -> doSm();  // 生成缩略图
-			// unlink('./'.$user -> uface);  // 删除原来的头像
+  			$data['uface'] = $this -> doUp();  // 处理上传文件
+  			$this -> doSm();  // 生成缩略图
+  			// unlink('./'.$user -> uface);  // 删除原来的头像
 		}
 
 

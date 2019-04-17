@@ -23,7 +23,6 @@ class ReplyController extends Controller
 		// 帖子浏览数+1 update bbs_post set view_cnt=view_cnt+1 where pid=xxx
 		M('bbs_post') -> where("pid=$pid") -> setInc('view_cnt', 1);
 
-
 		$this -> assign('replys', $replys);
 		$this -> assign('users', $users);
 		$this -> assign('post', $post);
@@ -32,8 +31,6 @@ class ReplyController extends Controller
 
 	public function save()
 	{
-		// echo "<pre>";
-		// print_r($_POST);die;
 		if (empty($_SESSION['flag'])) {
 			$this -> error('请先登录', '/');
 		}
@@ -41,17 +38,17 @@ class ReplyController extends Controller
 		$data = $_POST;
 		$data['created_at'] = time();
 		$data['uid'] = $_SESSION['userInfo']['uid'];
-		
-		$row = M('bbs_reply') -> add($data);
+
+		$row = M('bbs_reply')  -> add($data);
 
 		if($row) {
-			$Post = M('bbs_post') -> where('pid='. $data['pid']);
+			$Post = M('bbs_post') -> where('pid='. $data['pid']);			
 			
-			$row = $Post -> save(['updated_at' => time()]);
-			$Post -> setInc('rep_cnt', 1);
-			if(!$row) {
-				die('<hr>帖子时间更新失败!');
-			}
+			$Post -> setInc('rep_cnt',1);
+			$Post -> save(['updated_at'=>time()]);
+			// if(!$row) {
+			// 	die('<hr>帖子时间更新失败!');
+			// }
 			$this -> success('添加回复成功', './index.php?m=home&c=reply&a=create&pid='.$data['pid']);
 		} else {
 			$this -> error('添加回复失败');

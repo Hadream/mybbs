@@ -54,6 +54,8 @@ class LoginController extends Controller
 	// 生成验证码
 	public function code()
 	{
+		ob_clean;
+		
 		$config = array(
 					'fontSize' => 20,   // 验证码数字大小
 					'length' => 3,		// 验证码位数大小

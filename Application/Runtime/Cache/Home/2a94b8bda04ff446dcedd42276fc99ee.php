@@ -40,7 +40,8 @@
       <!--logo部分end-->
         
       <!--登陆部分start-->
-      <div  id="login"  style="position:relative;   right: -200px; bottom: -40px;">
+      <div  id="login"><br>
+        <?php  if(isset($_SESSION['userInfo']) && ($_SESSION['userInfo']['auth'])<=2){ echo '<a href="http://www.mybbs.com/?m=admin&c=index&a=index">登录后台 |</a>'; } else { echo ''; } ?>
         <?php if(empty($_SESSION['flag'])): ?>
         <form action="/index.php?m=home&c=login&a=dologin" method="post">
           <table>
@@ -75,8 +76,8 @@
           </table>
         </form>
           <?php else:?>
-              用户   <?=$_SESSION['userInfo']['uname']?>&nbsp&nbsp&nbsp&nbsp&nbsp
-              <a href="/index.php?m=home&c=login&a=logout">退出</a>
+              当前用户 |<a href="index.php?m=home&c=user&a=edit&uid=<?= $_SESSION['userInfo']['uid']?>"> <?=$_SESSION['userInfo']['uname'] ?></a>
+              <a href="/index.php?m=home&c=login&a=logout"> | 退出</a>
           <?php endif; ?>
       </div>
       <!--登陆部分start-->

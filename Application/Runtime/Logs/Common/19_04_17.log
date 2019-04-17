@@ -1,0 +1,93 @@
+[ 2019-04-17T00:31:29+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001334s ]
+
+[ 2019-04-17T08:28:13+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000093s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003416s ]
+
+[ 2019-04-17T08:29:19+08:00 ] 127.0.0.1 /m=admin&&c=look&a=update
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000628s ]
+ERR: 无法加载模块:M=admin&&c=look&a=update
+
+[ 2019-04-17T08:29:25+08:00 ] 127.0.0.1 /m=admin&&c=look&
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000654s ]
+ERR: 无法加载模块:M=admin&&c=look&
+
+[ 2019-04-17T08:29:28+08:00 ] 127.0.0.1 /m=admin&&c=look
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000509s ]
+ERR: 无法加载模块:M=admin&&c=look
+
+[ 2019-04-17T11:27:02+08:00 ] 127.0.0.1 /Public/static/image/common/px.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000997s ]
+
+[ 2019-04-17T11:33:57+08:00 ] 127.0.0.1 /Public/static/image/common/px.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000823s ]
+
+[ 2019-04-17T12:00:06+08:00 ] 127.0.0.1 /Public/static/image/common/midavt_shadow.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000626s ]
+
+[ 2019-04-17T12:00:06+08:00 ] 127.0.0.1 /Public/static/image/common/pn.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001334s ]
+
+[ 2019-04-17T12:00:09+08:00 ] 127.0.0.1 /Public/static/image/common/px.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000838s ]
+
+[ 2019-04-17T13:48:39+08:00 ] 127.0.0.1 /Public/static/image/common/midavt_shadow.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000763s ]
+
+[ 2019-04-17T13:48:39+08:00 ] 127.0.0.1 /Public/static/image/common/pn.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005356s ]
+
+[ 2019-04-17T13:48:54+08:00 ] 127.0.0.1 /Public/static/image/common/midavt_shadow.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001163s ]
+
+[ 2019-04-17T13:48:54+08:00 ] 127.0.0.1 /Public/static/image/common/pn.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000748s ]
+
+[ 2019-04-17T14:03:56+08:00 ] 127.0.0.1 /Public/static/image/common/midavt_shadow.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000781s ]
+
+[ 2019-04-17T14:03:57+08:00 ] 127.0.0.1 /Public/static/image/common/pn.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001382s ]
+
+[ 2019-04-17T14:46:26+08:00 ] 127.0.0.1 /Public/static/image/common/midavt_shadow.gif
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001041s ]
+
+[ 2019-04-17T14:46:27+08:00 ] 127.0.0.1 /Public/static/image/common/pn.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001605s ]
+

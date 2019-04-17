@@ -36,6 +36,7 @@ class PostController extends Controller
 
 		// 创建时间,更新时间
 		$data['updated_at'] = $data['created_at'] = time();
+
 		$row = M('bbs_post') -> add($data);
 
 		if($row) {
@@ -54,16 +55,32 @@ class PostController extends Controller
 
 
 		// 获取数据
-		$posts = M('bbs_post') -> where("cid = $cid") -> order("updated_at desc") -> select();
+		$posts = M('bbs_post') -> where("cid = $cid AND is_display=1") -> order("is_top desc, is_jing desc, updated_at desc")  -> select();
 
 		// 获取所有用户信息
 		$users = M('bbs_user') -> getField('uid, uname');
+
+		// 分页搜索
+		$User =  M('bbs_user');
+		$cnt  = $User -> where($condition) -> count();
+
+		$Page = new \Think\Page($cnt, 3);
+
+	    // 得到分页显示html代码
+	    $html_page = $Page -> show();
+
+		// 获取数据
+		$post = $User -> where($condition) 
+                       -> limit($Page -> firstRow, $Page -> listRows)
+                       -> select();
+        // echo '<pre>';print_r($posts);die;
 
 		// echo '<pre>';
 		// print_r($users);die;
 
 		// 遍历显示
 		$this -> assign('posts', $posts);
+		$this -> assign('html_page', $html_page);
 		$this -> assign('users', $users);
 		$this -> display(); // View/Post/index.html
 	}

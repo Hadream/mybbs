@@ -42,6 +42,9 @@ class CateController extends CommonController
 		// 获取数据
 		$cates = M('bbs_cate') -> select();
 
+
+      // echo '<pre>';
+
 		// 获取分区信息
 		$parts = M('bbs_part') /*-> where() */-> select();
 		// [pid => '分区名称', pid=>'分区名称'];
@@ -52,8 +55,35 @@ class CateController extends CommonController
 		$users = M('bbs_user') /*-> where('') */-> select();
 		$users = array_column($users, 'uname', 'uid');
 		// $users = M('bbs_user') -> getField('uid, uname');
+       // echo '<pre>'; print_r($users);die;
+
+      $sel = $_GET;
+      // echo '<pre>';print_r($sel);
+
+      // 实例化一个表对象
+      $User = M('bbs_cate');
+      $condition = [];
+
+      // 得到满足条件的总记录数
+      $cnt = $User -> where($condition) -> count();  
+
+      // 实例化分页类 传入总记录数和每页显示的记录数(3)
+      $Page = new \Think\Page($cnt, 3);
+
+      // 得到分页显示html代码
+      $html_page = $Page -> show();
+
+      // 获取数据
+      $cates = $User -> where($condition) 
+                     -> limit($Page -> firstRow, $Page -> listRows)
+                     -> select();
+
+
+      // echo "<pre>";
+      // print_r($cates);die;
 
 		// 遍历显示
+      $this -> assign('html_page', $html_page);
 		$this -> assign('cates', $cates);
 		$this -> assign('parts', $parts);
 		$this -> assign('users', $users);

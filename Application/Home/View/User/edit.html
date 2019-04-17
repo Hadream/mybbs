@@ -1,0 +1,34 @@
+<include file="Common/header"/>
+	<div class="content">			
+			<form action="index.php?m=home&c=user&a=update&uid=<?=$users['uid']?>" method="post" enctype="multipart/form-data">
+			
+				<table align="center" width="500" height="60">
+					<tbody>
+						<tr>
+							<td><label>用户名:</label></td>
+							<td><input type="text" name="uname" value="<?=$users['uname']?>"></td>
+						</tr>
+						<tr>
+							<td><label>性别:</label></td>
+							<td><input type="radio" name="sex" value="m" <?php echo $users['sex']=='m' ? 'checked' : ''; ?>>男
+							<input type="radio" name="sex" value="w" <?php echo $users['sex']=='w' ? 'checked' : ''; ?>>女
+							<input type="radio" name="sex" value="x" <?php echo $users['sex']=='x' ? 'checked' : ''; ?>>保密
+						</tr>
+						<tr>
+							<td><label>头像:</label></td>
+							<td><img src="/<?=getSm($users['uface'])?>"><input type="file" name="uface"></td>
+						</tr>
+						<tr>
+							<td><label>手机号:</label></td>
+							<td><input type="text" name="tel" value="<?=$users['tel']?>"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" value="更新"></td>
+						</tr>
+					
+					</tbody>
+				</table>
+
+			</form>			
+		</div>
+<include file="Common/footer"/>

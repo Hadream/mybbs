@@ -29,8 +29,27 @@ class PartController extends CommonController
     	// 获取数据
     	$parts = M('bbs_part') -> select();
 
+        // 实例化一个表对象
+        $User = M('bbs_part');
+        $condition = [];
+
+        // 得到满足条件的总记录数
+        $cnt = $User -> where($condition) -> count();  
+
+        // 实例化分页类 传入总记录数和每页显示的记录数(3)
+        $Page = new \Think\Page($cnt, 3);
+
+        // 得到分页显示html代码
+        $html_page = $Page -> show();
+
+        // 获取数据
+        $parts = $User -> where($condition) 
+                     -> limit($Page -> firstRow, $Page -> listRows)
+                     -> select();
+
     	// 遍历显示
     	$this -> assign('parts', $parts);
+        $this -> assign('html_page', $html_page);
     	$this -> display(); // View/Part/index.html
     }
 

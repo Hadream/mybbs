@@ -40,7 +40,8 @@
       <!--logo部分end-->
         
       <!--登陆部分start-->
-      <div  id="login"  style="position:relative;   right: -200px; bottom: -40px;">
+      <div  id="login"><br>
+        <?php  if(isset($_SESSION['userInfo']) && ($_SESSION['userInfo']['auth'])<=2){ echo '<a href="http://www.mybbs.com/?m=admin&c=index&a=index">登录后台 |</a>'; } else { echo ''; } ?>
         <?php if(empty($_SESSION['flag'])): ?>
         <form action="/index.php?m=home&c=login&a=dologin" method="post">
           <table>
@@ -75,8 +76,8 @@
           </table>
         </form>
           <?php else:?>
-              用户   <?=$_SESSION['userInfo']['uname']?>&nbsp&nbsp&nbsp&nbsp&nbsp
-              <a href="/index.php?m=home&c=login&a=logout">退出</a>
+              当前用户 |<a href="index.php?m=home&c=user&a=edit&uid=<?= $_SESSION['userInfo']['uid']?>"> <?=$_SESSION['userInfo']['uname'] ?></a>
+              <a href="/index.php?m=home&c=login&a=logout"> | 退出</a>
           <?php endif; ?>
       </div>
       <!--登陆部分start-->
@@ -186,9 +187,9 @@
 				<div class="post_title">
 					<table cellspacing=0 cellpadding=0 width='100%'>
 						<tr>
-							<th class="list_title">帖子标题</th>
+							<th class="list_title">帖子 | 标题</th>
 							<th class="list_author">作者</th>
-							<th class="list_count">回复/查看</th>
+							<th class="list_count">回复 | 查看</th>
 							<th class="list_ptime">最后发表</th>
 						</tr>
 					</table>
@@ -200,16 +201,17 @@
 					<table cellspacing=0 cellpadding=0 width='100%'>
 					<?php foreach($posts as $k=>$post): ?>
 						<tr>
-							<td class="list_title"><a href="/index.php?m=home&c=reply&a=create&pid=<?=$post['pid']?>"><?=$post['title']?></a></td>
+							<td class="list_title"><a href="/index.php?m=home&c=reply&a=create&pid=<?=$post['pid']?>"><?=$post['title']?></a> <?=$post['is_jing']==1 ? '<span style="color: red;">(精)</span>' : ''?> <?=$post['is_top']==1 ? '<span style="color: green;">(顶)</span>' : ''?></td>
 							<td class="list_author"><?=$users[ $post['uid'] ]?></td>
-							<td class="list_count"><?=$post['rep_cnt']?><?=$post['view_cnt']?></td>
+							<td class="list_count"><?=$post['rep_cnt']?> | <?=$post['view_cnt']?></td>
 							<td class="list_ptime"><?=date('Y-m-d H:i:s',$post['updated_at'])?></td>
 						</tr>
 					<?php endforeach; ?>		
 					</table>
+
 				</div>
 				<!--帖子列表内容部分end-->
-				
+				<div class="list-page" style="font-size:18px; text-align: center; color: yellow;"><?=$html_page?></div>
 			</div>
 			<!--帖子列表部分end-->            
         </div>

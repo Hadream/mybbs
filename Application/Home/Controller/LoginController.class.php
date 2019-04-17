@@ -16,11 +16,19 @@ class LoginController extends Controller
 	{
 		$data = $_POST;
 
-		// 密码是否为空
 
-		// 密码是否一致
+		$upwd = $_POST['upwd'];
+		// // 密码不能为空
+		// if (empty($data['upwd']) || empty($data['reupwd'])) {
+		// 	$this -> error('密码不能为空');
+		// }
+		// // 两次密码不一致
+		// if ($data['upwd'] !== $data['reupwd']) {
+		// 	$this -> error('两次密码不一致');
+	 	// }
 
 		$data['upwd'] = password_hash($upwd, PASSWORD_DEFAULT);
+
 		$data['created_at'] = time();
 		$data['auth'] = 3;
 
@@ -41,6 +49,7 @@ class LoginController extends Controller
 
 		$user = M('bbs_user') -> where("uname='$uname'") -> find();
 
+
 		if($user && password_verify($upwd, $user['upwd'])) {
 			$_SESSION['userInfo'] = $user;
 			$_SESSION['flag'] = true;
@@ -55,6 +64,8 @@ class LoginController extends Controller
 	public function logout()
 	{
 		$_SESSION['flag'] = false;
+		$_SESSION['userInfo'] = null;
+		unset($_SESSION['userInfo']);
 		$this -> success('正在退出...', '/');
 	}
 }
